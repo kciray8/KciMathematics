@@ -1,2 +1,5 @@
-![Alt text](Flow.jpg)
-![Alt text](Solution.jpg)
+<img align="left" src="Flow.jpg">
+
+
+
+<img align="left" src="Solution.jpg">
