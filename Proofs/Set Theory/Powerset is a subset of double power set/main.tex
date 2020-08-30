@@ -1,0 +1,512 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[mathscr]{euscript}
+\let\euscr\mathscr \let\mathscr\relax% just so we can load this and rsfs
+\usepackage[scr]{rsfso}
+\usepackage{amsmath}
+\usepackage{makecell}
+
+
+\author{Iaroslav Baranov (kciray8@gmail.com)}
+\date{\today}
+\newcommand{\powerset}{\raisebox{.15\baselineskip}{\Large\ensuremath{\wp}}}
+
+\newcommand{\ps}{\mathscr{P}}
+
+\def\arraystretch{1.5}%
+\setlength{\parindent}{0pt}
+\usepackage{geometry}
+\geometry{a4paper,total={170mm,257mm},left=10mm,top=10mm, paperheight=240cm,  layoutheight=240cm, textheight=3400}
+\pdfpageheight=2500mm
+\begin{document}
+
+\maketitle
+\section{Source}
+Book: How to Prove It: A Structured Approach 3rd Edition
+
+ISBN-13: 978-1108439534
+
+Exercise: 3.3.4
+
+\section{Task}
+Suppose  $A \subseteq  \mathscr{P}(A)$. Prove that $  \mathscr{P}(A) \subseteq \mathscr{P}(\mathscr{P}(A))$
+
+\section{Scratch Work}
+Assume $A \subseteq  \mathscr{P}(A)$
+
+\begin{tabular}{ | c | c| } 
+\hline
+Givens & Goal \\ 
+\hline
+$A \subseteq  \mathscr{P}(A)$ 
+& 
+$  \mathscr{P}(A) \subseteq \mathscr{P}(\mathscr{P}(A))$ 
+\\ 
+\hline
+\end{tabular}
+
+\bigskip
+Apply the definition of a subset
+
+\begin{tabular}{|c|c|} 
+\hline
+Givens & Goal \\ 
+\hline
+$A \subseteq  \mathscr{P}(A)$ 
+& 
+$  \forall x ( x \in \mathscr{P}(A) \implies x \in \mathscr{P}(\mathscr{P}(A)) )$ 
+\\ 
+\hline
+\end{tabular}
+
+\bigskip
+Let x be an arbitrary element
+
+\begin{tabular}{|c|c|} 
+\hline
+Givens & Goal \\ 
+\hline
+$A \subseteq  \mathscr{P}(A)$ 
+& 
+$   x \in \mathscr{P}(A) \implies x \in \mathscr{P}(\mathscr{P}(A)) $ 
+\\ 
+\hline
+\end{tabular}
+
+
+\bigskip
+Assume x \in \mathscr{P}(A)
+
+\begin{tabular}{|c|c|} 
+\hline
+Givens & Goal \\ 
+\hline
+\makecell{
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+}
+& 
+$   x \in \ps(\ps(A)) $ 
+\\ 
+\hline
+\end{tabular}
+ 
+\bigskip
+By the definition of a power set
+
+\begin{tabular}{|c|c|} 
+\hline
+Givens & Goal \\ 
+\hline
+\makecell{
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+}
+& 
+$   x \subseteq \ps(A) $ 
+\\ 
+\hline
+\end{tabular}
+ 
+\bigskip
+Apply the definition of a subset
+
+\begin{tabular}{|c|c|} 
+\hline
+Givens & Goal \\ 
+\hline
+\makecell{
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+}
+& 
+
+$  \forall y ( y \in x \implies y \in \ps(A) )$ 
+
+\\ 
+\hline
+\end{tabular}
+
+
+
+\bigskip
+Let y be an arbitrary element of x
+
+\begin{tabular}{|c|c|} 
+\hline
+Givens & Goal \\ 
+\hline
+\makecell{
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+}
+& 
+
+$  y \in x \implies y \in \ps(A)$ 
+
+\\ 
+\hline
+\end{tabular}
+
+\bigskip
+Assume y \in x
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+\\
+y \in x
+}& 
+\makecell{ %Goal
+$  y \in \ps(A)$ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+By the definition of a power set
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+\\
+y \in x
+}& 
+\makecell{ %Goal
+$  y \subseteq A$ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+By the definition of a subset
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+\\
+y \in x
+}& 
+\makecell{ %Goal
+$\forall z ( z \in y \implies z \in A )$ 
+}
+\\ \hline \end{tabular}
+
+
+\bigskip
+Let z be an arbitrary element of y
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+\\
+y \in x
+}& 
+\makecell{ %Goal
+$ z \in y \implies z \in A $ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+Assume z \in y
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \in \mathscr{P}(A)
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+By the definition of a power set
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+x \subseteq A 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+ 
+\bigskip
+By the definition of a subset
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+$\forall k ( k \in x \implies k \in A )$ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+ 
+\bigskip
+Universal instantiation (k = y)
+\newline
+\nopagebreak
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+$\forall k ( k \in x \implies k \in A )$ 
+\\ 
+$ y \in x \implies y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+ 
+\bigskip
+Modus Ponens (y \in x)
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$A \subseteq  \mathscr{P}(A)$  
+\\ 
+$\forall k ( k \in x \implies k \in A )$ 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+ 
+ \bigskip
+By the definition of a subset ($A \subseteq  \mathscr{P}(A)$  )
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\ 
+$\forall k ( k \in x \implies k \in A )$ 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+ \bigskip
+Universal instantiation (m = y)
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\
+y \in A \implies y \in \ps(A) 
+\\ 
+$\forall k ( k \in x \implies k \in A )$ 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+ \bigskip
+Modus Ponens ($ y \in A $ )
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall k ( k \in x \implies k \in A )$ 
+\\
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\
+y \in \ps(A) 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+ \bigskip
+By the definition of a power set
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall k ( k \in x \implies k \in A )$ 
+\\
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\
+y \subseteq A 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+
+\bigskip
+By the definition of a subset
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall k ( k \in x \implies k \in A )$ 
+\\
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\
+$\forall n ( n \in y \implies n \in A )$ 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+Universal Instantiation (n = z)
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall k ( k \in x \implies k \in A )$ 
+\\
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\
+$\forall n ( n \in y \implies n \in A )$ 
+\\
+$ z \in y \implies z \in A $ 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+Modus Ponens (z \in y)
+\nopagebreak
+\newline
+\begin{tabular}{|c|c|} \hline
+Givens & Goal \\ \hline
+\makecell{ %Givens
+$\forall k ( k \in x \implies k \in A )$ 
+\\
+$\forall m ( m \in A \implies m \in \ps(A) )$ 
+\\
+$\forall n ( n \in y \implies n \in A )$ 
+\\
+$ z \in A $ 
+\\ 
+$ y \in A $ 
+\\
+y \in x
+\\
+z \in y
+}& 
+\makecell{ %Goal
+$ z \in A $ 
+}
+\\ \hline \end{tabular}
+
+\bigskip
+Now the goal follows from the givens
+
+\section{Final Solution}
+\subsection{Task}
+Suppose  $A \subseteq  \mathscr{P}(A)$. Prove that $  \mathscr{P}(A) \subseteq \mathscr{P}(\mathscr{P}(A))$
+\subsection{Solution}
+Assume $A \subseteq  \ps (A)$. Let x be an arbitrary element. Assume $x \in \ps(A)$. Let y be an arbitrary element of x. Assume $y \in x$. Let z be an arbitrary element of y. Assume $z \in y$. Since $x \in \ps (A)$, $x \subseteq A$. Since $y \in x$, $y \in A$. Since $y \in \ps(A)$, $y \subseteq A$. Since $z \in y$, $z \in A$. Since z is an arbitrary element of y and $z \in A$, $y \subseteq A$ and $y \in \ps (A)$. Since y is an arbitrary element of x and $y \in \ps (A)$, $x \subseteq \ps (A)$ and $x \in \ps (\ps(A))$. Since x is an arbitrary element of $\ps (A)$ and $x \in \ps (\ps(A))$, it follows that $\ps (A) \subseteq \ps (\ps(A)). \blacksquare$
+
+\end{document}
